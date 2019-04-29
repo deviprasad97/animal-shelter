@@ -100,9 +100,11 @@ def animals():
         description = request.form['description']
         adoption_fee = request.form['adoption_fee']
         if db.new_animal(name, age, animal_type, color, availability, size, breed, description, filename, adoption_fee):
-            return render_template('admin/add_animal.html', msg="Added successfully", user=session['fname'])
+            breeds = db.get_breeds()
+            return render_template('admin/add_animal.html', options=breeds, msg="Added successfully", user=session['fname'])
         else:
-            return render_template('admin/add_animal.html', error="Something went wrong", user=session['fname'])
+            breeds = db.get_breeds()
+            return render_template('admin/add_animal.html', options=breeds, error="Something went wrong", user=session['fname'])
 
 @app.route('/admin/animals/delete', methods=['GET', 'POST'])
 def delete_animal():
@@ -414,14 +416,13 @@ def pet_adopt():
     else:
         return "You need to be Signed In as a user to make a adoption"
 
-@app.route('/search/<string:q>', methods=['GET','POST'])
-def search(q):
+@app.route('/browse/', methods=['GET','POST'])
+def search():
+
     if request.method == 'POST':
-        results = db.search(q);
-        if results is not None:
-            return render_template('search.html', results=results)
-        else:
-            return render_template('temp.html', results="Not found")
+        return render_template('browse.html', results="Not found")
+    else:
+         return render_template('browse.html')
 
 
 @app.route('/logout', methods=['GET', 'POST'])
