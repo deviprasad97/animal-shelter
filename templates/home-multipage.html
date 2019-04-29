@@ -104,29 +104,16 @@
 				        <a class="nav-link active" href="index.html">Home</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="about.html">about</a>
+				        <a class="nav-link" href="#">about</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="pets-profile.html">pet profile</a>
+				        <a class="nav-link" href="#">pet profile</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="event-list.html">event</a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="pet-gallery.html">gallery</a>
-				      </li>
-				      <li class="nav-item dropdown">
-				        <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">news</a>
-				        <ul class="dropdown-menu">
-	                      <li class="menu-item"><a href="blog.html">Blog</a></li>
-	                      <li class="menu-item"><a href="blog-single.html">Blog Single</a></li>
-	                    </ul>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="contact.html">contact</a>
+				        <a class="nav-link" href="#">contact</a>
 				      </li>
 				      <li class="nav-item nav-donation">
-				        <a class="nav-link" href="donate.html">Find Your Pet</a>
+				        <a class="nav-link" href="/browse/">Find Your Pet</a>
 				      </li>
 				    </ul>
 				  </div>
@@ -144,8 +131,10 @@
 
 	<!-- CAROUSEL -->
 	<div class="owl-carousel">
+		{% for n in results %}
+   
 		<div class="item slider">
-			<img src="{{ url_for('static', filename='images/carousel/cat-1.jpg') }}" alt="Cat">
+			<img src="{{ url_for('static', filename='uploads/'+n['image']) }}" alt="{{n['type']}}">
 
 			<div class="slider-content">
 				<div class="container">
@@ -155,42 +144,11 @@
 						<li>Care</li>
 						<li>Love</li>
 					</ul>
-					<a href="#" class="btn btn-base btn-xlg">Donate Now</a>
+					<a href="/pet_info/{{n['animal_id']}}" class="btn btn-base btn-xlg">Learn More</a>
 				</div>
 			</div><!-- /.slider-content -->
 		</div>
-
-		<div class="item slider">
-			<img src="{{ url_for('static', filename='images/carousel/dog-1.jpg') }}" alt="Dog">
-
-			<div class="slider-content">
-				<div class="container">
-					<h1 class="title-text">Adopt pet and help them</h1>
-					<ul>
-						<li>Adopt</li>
-						<li>Care</li>
-						<li>Love</li>
-					</ul>
-					<a href="#" class="btn btn-base btn-xlg">Donate Now</a>
-				</div>
-			</div><!-- /.slider-content -->
-		</div>
-
-		<div class="item slider">
-			<img src="{{ url_for('static', filename='images/carousel/cat-2.jpg') }}" alt="Cat">
-
-			<div class="slider-content">
-				<div class="container">
-					<h1 class="title-text">Pet is your friend</h1>
-					<ul>
-						<li>Adopt</li>
-						<li>Care</li>
-						<li>Love</li>
-					</ul>
-					<a href="#" class="btn btn-base btn-xlg">Donate Now</a>
-				</div>
-			</div><!-- /.slider-content -->
-		</div>
+	{% endfor %}
 	</div>
 </div>
 
@@ -204,7 +162,7 @@
 			<div class="col-lg-6">
 				<div class="special-event-header">
 					<h3>BE THE PET LOVER</h3>
-					<p>Anima is a non-profit Bootstap3 animals rescue clean HTML</p>
+					<p>Pet Pal is an organistion to help people find their perfect pet. Its created by UTA students</p>
 					<a href="#">Read More</a>
 				</div>
 			</div>
@@ -520,79 +478,6 @@
 	</div>
 </section>
 
-
-
-<!-- =========================
-     RECENTS EVENTS 
-============================== -->
-<section class="recent-events" id="recent-events">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<header class="section-header">
-					<h2 class="title-text">Recent Events</h2>
-					<p class="sub-title">To rasie awarness among people and save the homless animals we annouce some big events that help the animals.</p>
-				</header>
-			</div>
-		</div>
-
-		<div class="row">
-			<!-- INDIVIDUAL EVENT -->
-			<div class="row-item col-lg-4 col-md-6">
-				<div class="pet-thumb">
-					<img src="{{ url_for('static', filename='images/animal-thumbs/cat-5.jpg') }}" alt="Cat" class="img-fluid">
-					<div class="event-timing" id="event-1"></div>
-				</div>
-
-				<article>
-					<h4 class="title-text"><a href="blog-single.html">Be the pet lover</a></h4>
-					<p>Free adoptation event is coming soon again in CA. Ready to buy home for your sweet loving pets and come to join with us.</p>
-					<p class="post-info">
-						<span class="date">12 November, 2015</span>
-						<span class="place">Time Square, New York</span>
-					</p>
-				</article>
-			</div>
-
-			<!-- INDIVIDUAL EVENT -->
-			<div class="row-item col-lg-4 col-md-6">
-				<div class="pet-thumb">
-					<img src="{{ url_for('static', filename='images/animal-thumbs/par-1.jpg') }}" alt="Dog" class="img-fluid">
-					<div class="event-timing" id="event-2"></div>
-				</div>
-
-				<article>
-					<h4 class="title-text"><a href="blog-single.html">BIRDS FEEL SAVE UNDER YOU</a></h4>
-					<p>We arrange a big event to raise money for the birds who feel sick or affected by the brutal human in difference place. Come and join.</p>
-					<p class="post-info">
-						<span class="date">12 November, 2015</span>
-						<span class="place">Time Square, New York</span>
-					</p>
-				</article>
-			</div>
-
-			<!-- INDIVIDUAL EVENT -->
-			<div class="row-item col-lg-4 col-md-6">
-				<div class="pet-thumb">
-					<img src="{{ url_for('static', filename='images/animal-thumbs/dog-4.jpg') }}" alt="Parrot" class="img-fluid">
-					<div class="event-timing" id="event-3"></div>
-				</div>
-
-				<article>
-					<h4 class="title-text"><a href="blog-single.html">DOG IS ALWAYS YOUR FRIEND</a></h4>
-					<p>To raise awarness among people not to expoilt their pets, we will gather in townhall in Newyork. You prenets make us proud.</p>
-					<p class="post-info">
-						<span class="date">12 November, 2015</span>
-						<span class="place">Time Square, New York</span>
-					</p>
-				</article>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
 <!-- =========================
      ADOPT PETS
 ============================== -->
@@ -606,10 +491,7 @@
 				</div>
 
 				<div class="row-item col-md-6 text-right">
-					<p>Buy our product from ebay or Amazon <br>
-					and make your contribution.</p>
-
-					<p><a href="#" class="btn btn-fill">Shop Now</a></p>
+					<p><a href="/browse/" class="btn btn-fill">Adopt Now</a></p>
 				</div>
 			</div>
 		</div>
@@ -636,9 +518,9 @@
 				<figure class="d-none d-lg-block d-xl-block">
 					<img src="{{ url_for('static', filename='images/team-members/1.jpg') }}" alt="Team Member" class="img-fluid">
 					<figcaption>
-						<h4 class="title-text text-capitalize">John Doe</h4>
+						<h4 class="title-text text-capitalize">Devi Prasad Tripathy</h4>
 						<hr class="yellow-line">
-						<p class="meta">Pet Specialist</p>
+						<p class="meta">Full Stack Developer</p>
 					</figcaption>
 				</figure>
 
@@ -726,38 +608,6 @@
 					</ul>
 				</div>
 			</div>
-
-			<!-- INDIVIDUAL MEMBER -->
-			<div class="row-item each-member col-lg-3 col-sm-6">
-				<figure class="d-none d-lg-block d-xl-block">
-					<img src="{{ url_for('static', filename='css/bootstrap.min.css') }}" alt="Team Member" class="img-fluid">
-					<figcaption>
-						<h4 class="title-text text-capitalize">Jonah Doea</h4>
-						<hr class="yellow-line">
-						<p class="meta">Pet Activist</p>
-					</figcaption>
-				</figure>
-
-				<!-- HOVER PROFILE -->
-				<div class="hover-profile clearfix">
-					<figure class="thumb clearfix">
-						<img src="{{ url_for('static', filename='images/team-members/4.jpg') }}" alt="Team Member" class="img-fluid">
-						<figcaption>
-							<h4 class="title-text text-capitalize">Jonah Doea</h4>
-							<hr class="yellow-line">
-							<p class="meta">Pet Activist</p>
-						</figcaption>
-					</figure>
-
-					<p>Jonah Doea is a pet activist and a a full time professional pet doctors based in Newyork. She is the co-founder of Anima and number one donor in our community.</p>
-
-					<ul class="social-connect">
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-linkedin"></i></a></li>
-					</ul>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -796,167 +646,6 @@
 		</div> <!-- end of .container -->
 	</div> <!-- end of .overlay -->
 </section>
-
-<!-- =========================
-     RECENT NEWS 
-============================== -->
-<section class="news" id="news">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<header class="section-header">
-					<h2 class="title-text">Recent News</h2>
-					<p class="sub-title">Our vounleers and community members are writting exciting stories and articles which make surprise and wise about pets love.</p>
-				</header>
-			</div>
-		</div>
-
-		<div class="row">
-			<!-- INDIVIDUAL ITEM -->
-			<div class="row-item col-lg-4 col-md-6 wow fadeInUp">
-    			<article>
-    				<header class="news-header clearfix">
-						<div class="news-time">
-							<span class="news-date">21</span>
-							<span class="news-month">November</span>
-						</div>						
-					
-						<div class="news-detail">
-							<h4 class="title-text text-capitalize">
-								<a href="blog-single.html">Homeless is not an issue</a>
-							</h4>
-							<span class="news-author"><i class="fa fa-folder-o"></i> John Doe</span>
-							<a href="blog-single.html" class="news-comment"><i class="fa fa-comment-o"></i> 35 Comments</a>
-						</div>   						
-    				</header><!-- end of /.news-head -->
-
-    				<div class="news-img hover-img">
-    					<img src="{{ url_for('static', filename='images/animal-thumbs/dog-6.jpg') }}" alt="news image" class="img-fluid">
-
-    					<div class="hover-content">
-    						<a href="blog-single.html" class="link-popup">
-    							<i class="icon-inside icon-link"></i>
-    						</a>
-    					</div>
-    				</div> <!-- end of /.hover-img -->
-
-    				<div class="news-body">
-    					<p>Anima is non profit HTML5 bootstrap3 clean template for animal rescue. You can use it for your volunteer organisation, for industry or even personal for use. </p>
-
-    					<a href="#" class="btn btn-base">Read More</a>
-    				</div><!-- /.news-body -->
-    			</article>
-    		</div>
-
-    		<!-- INDIVIDUAL ITEM -->
-			<div class="row-item col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-    			<article>
-    				<header class="news-header clearfix">
-						<div class="news-time">
-							<span class="news-date">12</span>
-							<span class="news-month">November</span>
-						</div>						
-					
-						<div class="news-detail">
-							<h4 class="title-text text-capitalize">
-								<a href="blog-single.html">A bicycle ride</a>
-							</h4>
-							<span class="news-author"><i class="fa fa-folder-o"></i> John Doe</span>
-							<a href="blog-single.html" class="news-comment"><i class="fa fa-comment-o"></i> 35 Comments</a>
-						</div>   						
-    				</header><!-- end of /.news-head -->
-
-    				<div class="news-img hover-img">
-    					<img src="{{ url_for('static', filename='images/animal-thumbs/dog-7.jpg') }}" alt="news image" class="img-fluid">
-
-    					<div class="hover-content">
-    						<a href="blog-single.html" class="link-popup">
-    							<i class="icon-inside icon-link"></i>
-    						</a>
-    					</div>
-    				</div> <!-- end of /.hover-img -->
-
-    				<div class="news-body">
-    					<p>Anima is non profit HTML5 bootstrap3 clean template for animal rescue. You can use it for your volunteer organisation, for industry or even personal for use. </p>
-
-    					<a href="#" class="btn btn-base">Read More</a>
-    				</div><!-- /.news-body -->
-    			</article>
-    		</div>
-
-    		<!-- INDIVIDUAL ITEM -->
-			<div class="row-item col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-    			<article>
-    				<header class="news-header clearfix">
-						<div class="news-time">
-							<span class="news-date">2</span>
-							<span class="news-month">December</span>
-						</div>						
-					
-						<div class="news-detail">
-							<h4 class="title-text text-capitalize">
-								<a href="blog-single.html">Run to het the pet</a>
-							</h4>
-							<span class="news-author"><i class="fa fa-folder-o"></i> John Doe</span>
-							<a href="blog-single.html" class="news-comment"><i class="fa fa-comment-o"></i> 35 Comments</a>
-						</div>   						
-    				</header><!-- end of /.news-head -->
-
-    				<div class="news-img hover-img">
-    					<img src="{{ url_for('static', filename='images/animal-thumbs/dog-8.jpg') }}" alt="news image" class="img-fluid">
-
-    					<div class="hover-content">
-    						<a href="blog-single.html" class="link-popup">
-    							<i class="icon-inside icon-link"></i>
-    						</a>
-    					</div>
-    				</div> <!-- end of /.hover-img -->
-
-    				<div class="news-body">
-    					<p>Anima is non profit HTML5 bootstrap3 clean template for animal rescue. You can use it for your volunteer organisation, for industry or even personal for use. </p>
-
-    					<a href="#" class="btn btn-base">Read More</a>
-    				</div><!-- /.news-body -->
-    			</article>
-    		</div>
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-     Client Logo 
-============================== -->
-
-<div class="section-padding-50-equal client-logo-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="client-logos">
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/1.png') }}" class="img-fluid" alt="">
-					</a>
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/2.png') }}" class="img-fluid" alt="">
-					</a>
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/3.png') }}" class="img-fluid" alt="">
-					</a>
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/4.png') }}" class="img-fluid" alt="">
-					</a>
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/5.png') }}" class="img-fluid" alt="">
-					</a>
-					<a href="#" class="client-logo">
-						<img src="{{ url_for('static', filename='images/client-logo/6.png') }}" class="img-fluid" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 
 <!-- =========================
      FOOTER 
@@ -1036,7 +725,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<p>&copy; 2019 <a href="http://codepassenger.com/">CodePassanger</a> - Charity &amp; Activism Template By CodePassenger</p>
+					<p>&copy; 2019 <a href="http://omega.uta.edu/~dpt1757"> Devi Prasad Tripathy &amp; Team 1 of CSE 3330</p>
 				</div>
 			</div>
 		</div>

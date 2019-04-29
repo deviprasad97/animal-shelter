@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from modules.animal import Animal
 import os
 import uuid
+import random
 
 UPLOAD_FOLDER = './static/uploads'
 
@@ -16,10 +17,12 @@ db = database.Database()
 db.initialize()
 @app.route("/")
 def main():
+    results = db.search([None, None])
+    results = random.sample(results, 2)
     if 'username' not in session:
-        return render_template('home-multipage.html')
+        return render_template('home-multipage.html', results=results)
     else:
-        return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'])
+        return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'], results=results)
 
 
 @app.route('/signup',  methods=['GET', 'POST'])
@@ -435,13 +438,13 @@ def search():
         print("Search, POST")
         print(results)
         print(len(results))
-        return render_template('browse.html', breeds=breeds, results=results)
+        return render_template('browse.html', breeds=breeds, results=results, num=len(results))
     else:
          results = db.search([None, None])
          print("Search, GET")
          print(results)
          print(len(results))
-         return render_template('browse.html', breeds=breeds, results=results)
+         return render_template('browse.html', breeds=breeds, results=results, num=len(results))
 
 
 @app.route('/logout', methods=['GET', 'POST'])
