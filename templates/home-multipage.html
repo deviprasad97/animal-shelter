@@ -38,6 +38,9 @@
   <!-- FONT ICONS CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='icons/styles.css') }}">
 
+	<!-- MATERIAL ICON CSS -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
    <!-- OWL CAROUSEL CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.yellow.css') }}">
@@ -59,6 +62,13 @@
             <script src="js/html5shiv.js"></script>
             <script src="js/respond.min.js"></script>
     <![endif]-->
+	<style>
+	a {
+    color: #a1c4d3;
+    background-color: transparent;
+    text-decoration: none;
+}
+	</style>
 
 </head>
 <body>
@@ -73,14 +83,21 @@
 		<div class="row">
 			<div class="col">
 				<nav class="navbar navbar-expand-lg custom-nav" id="spyNav">
-				  <a class="navbar-brand" href="#">ANIMA</a>
+				  <a class="navbar-brand" href="#">Pet Pal</a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				    <span class="icon icon-align-justify"></span>
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarNav">
 				  	<ul class="nav-top">
-				  		<li class="mobile"><i class="icon icon-call-phone"></i>+880 1723 130 532</li>
-				  		<li><i class="icon icon-email-envelope"></i>support@yourmailid.com</li>
+							{% if user %}
+							<li><a class="nav-link" href = "#" style="padding-top: 0px;"><i class="material-icons">account_circle</i> {{ user }}</a></li>
+							<li><a class="nav-link" href = {{'/logout'}} style="padding-top: 0px;"><i class="material-icons">power_settings_new</i>Sign out</a></li>
+							{% else %}
+							<a href = {{ '/signin' }} style="padding-top: 0px;"><li>Sign in</li></a>
+							{% endif %}
+							{% if isAdmin %}
+								<li><a class="nav-link" href = "{{ '/admin' }}" style="padding-top: 0px;"><i class="material-icons">account_circle</i>Admin Portal</a></li>
+							{% endif %}
 				  	</ul>
 				    <ul class="navbar-nav ml-auto">
 				      <li class="nav-item">
@@ -109,7 +126,7 @@
 				        <a class="nav-link" href="contact.html">contact</a>
 				      </li>
 				      <li class="nav-item nav-donation">
-				        <a class="nav-link" href="donate.html">Donation</a>
+				        <a class="nav-link" href="donate.html">Adopt Now</a>
 				      </li>
 				    </ul>
 				  </div>
@@ -497,6 +514,7 @@
 						</div> <!-- /.profile -->
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -1040,13 +1058,13 @@
 <script src="{{ url_for('static', filename='js/nivo-lightbox.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery.mixitup.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jflickrfeed.min.js') }}"></script>
-<script src="http://18.223.184.82/matchMedia.js"></script>
+<script src="{{ url_for('static', filename='js/matchMedia.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery.fitvids.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
 <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
-<script src="http://18.223.184.82/custom.js"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
 
 <script>
  new WOW().init();

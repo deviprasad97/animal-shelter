@@ -1,0 +1,664 @@
+<html>
+<head>
+
+<!-- META DATA -->
+    <meta name="description" content="Anima is a Responsive Bootstrap 4 Pet Rescue and Shelter Template Which is Designed Based on Twitter Bootstrap 4.1.3, HTML5 and CSS3. It is also suitable for Non-Profit or any Charity Organization." />
+    <meta name="keywords" content="animal rescue, pet rescue, animal shelter, pet shelter, animal rescue and shelter, non-profit, charity, pet rescue theme, animal rescue theme" />
+    <meta name="author" content="CodePassenger">
+	
+	<!-- Mobile Specific Meta -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <!-- =========================
+      FAV AND TOUCH ICONS  
+    ============================== -->
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <!-- =========================
+       STYLESHEETS 
+    ============================== -->
+    <!-- PRELOADER -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/preloader.css') }}">
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <!-- GOOGLE FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700%7CRaleway:100,200,300,400,500,600,700' rel='stylesheet'>
+   
+  <!-- FONT ICONS CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='icons/styles.css') }}">
+
+	<!-- MATERIAL ICON CSS -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <!-- OWL CAROUSEL CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.yellow.css') }}">
+
+   <!-- NIVO LIGHTBOX -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/nivo-lightbox/nivo-lightbox.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/nivo-lightbox/default.css') }}">
+  
+	<!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+		
+    <!-- RESPONSIVE FIXES -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.min.js"></script>
+    <![endif]-->
+	<style>
+        a {
+            color: #a1c4d3;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        .modale:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.opened:before {
+  display: block;
+}
+.opened .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 20%;
+}
+.modal-dialog {
+  background: #fefefe;
+  border: #333333 solid 0px;
+  border-radius: 5px;
+  margin-left: -200px;
+  text-align:center;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  z-index: 11;
+  width: 360px;
+  box-shadow:0 5px 10px rgba(0,0,0,0.3);
+  -webkit-transform: translate(0, -500%);
+  -ms-transform: translate(0, -500%);
+  transform: translate(0, -500%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal-body {
+  padding: 20px;
+}
+.modal-body input{
+  width:200px;
+  padding:8px;
+  border:1px solid #ddd;
+  color:#888;
+  outline:0;
+  font-size:14px;
+  font-weight:bold
+}
+.modal-header,
+.modal-footer {
+  padding: 10px 20px;
+}
+.modal-header {
+  border-bottom: #eeeeee solid 1px;
+}
+.modal-header h2 {
+  font-size: 20px;
+}
+
+    </style>
+<script async="" type="text/javascript" src="{{ url_for('static', filename='js/gpt.js') }}"></script>
+<script async="" src="{{ url_for('static', filename='js/gtm.js') }}"></script>
+<script type="text/javascript">if(self===top){var antiClickjack=document.getElementById("antiClickjack");antiClickjack.parentNode.removeChild(antiClickjack)}else top.location=self.location;</script>
+            <script type="text/javascript">
+    purData = window.purData || [];
+    purData.push({
+        siteID:'petfinder',
+        language:'en-us'
+                , 
+dimensions: {
+1: 'TX2184',
+2: 'Mini Mutts Animal Rescue'
+, 4: 'Dog'
+, 5: 'Australian Cattle Dog / Blue Heeler'
+, 6: ''
+, 7: '75050'
+, 8: '6'
+, 9: 'None'
+, 12: 'Dog'
+, 13: 'Collie'
+, 14: 'Young'
+, 15: 'Male'
+, 16: 'Medium'
+, 25: '42912777'
+, 26: 'BANE (THE DC COMIC PUPPIES)'
+ 
+, 27: 'Black'
+, 28: 'adoptable'
+, 29: 'Short'
+}
+
+            });
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','purData','GTM-KGQ2KV2');
+</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6504b5">
+<!--[if IE]><meta http-equiv="cleartype" content="on"/><![endif]-->
+
+<title> Adopt  - {{ info['name'] }} | Pet Pal</title>
+<meta name="keywords" content="">
+<meta name="description" content="Meet BANE (THE DC COMIC PUPPIES), a Collie &amp; Australian Cattle Dog / Blue Heeler Mix Dog for adoption, at Mini Mutts Animal Rescue in Grand Prairie, TX on Petfinder. Learn more about BANE (THE DC COMIC PUPPIES) today.">
+<meta name="Title" content="Dog for adoption - BANE (THE DC COMIC PUPPIES), a Collie &amp; Australian Cattle Dog / Blue Heeler Mix in Grand Prairie, TX | Petfinder">
+
+<link rel="canonical" href="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/">
+
+<meta property="fb:app_id" content="1650864228532522">
+            <meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@petfinder">
+<meta name="twitter:title" content="Meet BANE (THE DC COMIC PUPPIES), Up For Adoption Near Grand Prairie, TX"><meta name="twitter:description" content="Have you seen a more perfect Dog - Collie &amp; Australian Cattle Dog / Blue Heeler Mix? BANE (THE DC COMIC PUPPIES) is looking for a forever family on @petfinder https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/"><meta name="twitter:image" content="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/42912777/3/?bust=1551057589"><meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Petfinder">
+<meta property="og:title" content="Adopt BANE (THE DC COMIC PUPPIES) on Petfinder"><meta property="og:description" content="BANE (THE DC COMIC PUPPIES) is an adoptable Dog - Collie &amp; Australian Cattle Dog / Blue Heeler Mix searching for a forever family near Grand Prairie, TX. Use Petfinder to find adoptable pets in your area."><meta property="og:url" content="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/">
+<meta property="og:image" content="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/42912777/3/?bust=1551057589">                
+        <link rel="icon" href="https://www.petfinder.com/assets/www/media/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://www.petfinder.com/assets/www/media/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://www.petfinder.com/assets/www/media/favicon/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="https://www.petfinder.com/assets/www/media/favicon/favicon-62.png" sizes="62x62" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.petfinder.com/assets/www/media/favicon/apple-touch-icon-180x180.png">
+
+<link rel="stylesheet" media="screen, projection, print" href="{{ url_for('static', filename='css/modern.css') }}">
+
+
+
+        <link rel="preload" href="https://www.petfinder.com/assets/www/media/fonts/nexaRegular/nexa-regular-webfont-subset.woff2" as="font" type="font/woff2" crossorigin="">
+<style>
+    body {
+        font-family: helvetica, arial, sans-serif;
+    }
+
+    .fontsStage1 body {
+        font-family: 'Nexa Regular', helvetica, arial, sans-serif;
+    }
+ 
+</style>
+
+</head>
+<body>
+<div class="pre-loader">
+	<div class="spinner"></div>
+</div>
+
+<!-- Navbar -->
+<div class="cp-nav fixed-nav">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<nav class="navbar navbar-expand-lg custom-nav" id="spyNav">
+				  <a class="navbar-brand" href="#">Pet Pal</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="icon icon-align-justify"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarNav">
+				  	<ul class="nav-top">
+							{% if user %}
+							<li><a class="nav-link" href = "#" style="padding-top: 0px;"><i class="material-icons">account_circle</i> {{ user }}</a></li>
+							<li><a class="nav-link" href = {{'/logout'}} style="padding-top: 0px;"><i class="material-icons">power_settings_new</i>Sign out</a></li>
+							{% else %}
+							<a href = {{ '/signin' }} style="padding-top: 0px;"><li>Sign in</li></a>
+							{% endif %}
+							{% if isAdmin %}
+								<li><a class="nav-link" href = "{{ '/admin' }}" style="padding-top: 0px;"><i class="material-icons">account_circle</i>Admin Portal</a></li>
+							{% endif %}
+				  	</ul>
+				    <ul class="navbar-nav ml-auto">
+				      <li class="nav-item">
+				        <a class="nav-link active" href="index.html">Home</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="about.html">about</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="pets-profile.html">pet profile</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="pet-gallery.html">gallery</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">contact</a>
+				      </li>
+				      <li class="nav-item nav-donation">
+				        <a class="nav-link" href="#">Adopt Now</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Navbar End -->
+
+<div class="home" id="home">
+	<div class="owl-carousel" id="owl-carousel" data-interval="false">
+		<div class="item">
+			<img src="{{ url_for('static', filename='uploads/'+info['image']) }}" alt={{ info['name'] }}>
+
+			<div class="slider-content">
+				<div class="container">
+					<h1 class="title-text">Meet {{ info['name'] }}</h1>
+					<ul>
+						<li>Adopt</li>
+						<li>Care</li>
+						<li>Love</li>
+					</ul>
+                    {% if isAva == 'Yes' %}
+                        {% if user %}
+                        <form action="{{ "/pet_info/adopt" }}" method="post">
+                        <input type="text" name="animal_id" value="{{ info['animal_id'] }}" style="visibility:hidden">
+                        <input type="text" name="adoption_fee" value="{{ info['adoption_fee'] }}" style="visibility:hidden">
+                        <button class="btn btn_loader btn-xlg m-btn_full" style="visibility:visible" type="submit">Adopt Now for ${{ info['adoption_fee'] }}</button>
+                        </form>
+                        {% else %}
+                        <a href="#" onClick='alert("You need to be signed in")' class="btn btn-base btn-xlg">Adpot Now</a>
+                        {% endif %}
+                    {% else %}
+                    This is animal is already adopted
+                    {% endif %}
+				</div>
+			</div><!-- /.slider-content -->
+		</div>
+
+		<div class="item slider">
+			<img src="{{ url_for('static', filename='uploads/'+info['image']) }}" alt={{ info['name'] }}>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+function change()
+{
+    console.log("Hello");
+    document.getElementById("myP").style.visibility="visible";
+}
+</script>
+
+<div class="tier tier_flush@maxLg u-vr8x u-vrTop6x">
+        <div class="grid grid_gutterLg">
+            <div class="grid-col grid-col_2/3@minLg">
+                <div class="card card_divide">
+                                        <div class="card-section">
+    <div class="card-section-inner">
+        
+        <h1 class="txt txt_h1 u-vr4x" tabindex="-1" id="Detail_Main">
+            <span class="u-displayBlock u-vr4x u-vr2x@minMd" role="presentation">
+                {{ info['name'] }}
+            </span>
+            <span class="hrTitle m-hrTitle_collapse@minLg u-vr3x" role="presentation">
+                <span class="hrTitle-body" role="presentation">
+                    <span class="hrArray hrArray_bulletDivided" aria-label="Pet type" role="presentation" style="
+    height: 0px;
+">
+                                                                            <span role="presentation">
+                                <span class="txt m-txt_bold m-txt_lg@minMd" role="presentation">
+                                    Collie &amp; Australian Cattle Dog / Blue Heeler Mix
+                                </span>
+                            </span>
+                                                                            <span role="presentation">
+                                <span class="txt m-txt_bold m-txt_lg@minMd" role="presentation">
+                                    Grand Prairie, TX
+                                </span>
+                            </span>
+                                            </span>
+                </span>
+            </span>
+        </h1>
+        <div class="hr u-isHidden@maxLg u-vr4x"></div>
+        <ul class="hrArray hrArray_bulletDivided" aria-label="Pet physical characteristics">
+                            <li>
+                    <span class="txt m-txt_lg">
+                        Young
+                    </span>
+                </li>
+                                        <li>
+                    <span class="txt m-txt_lg">
+                        Male
+                    </span>
+                </li>
+                                        <li>
+                    <span class="txt m-txt_lg">
+                        Medium
+                    </span>
+                </li>
+                                        <li>
+                    <span class="txt m-txt_lg">
+                        Black
+                    </span>
+                                        <span class="txt m-txt_lg">
+                        , Brown / Chocolate
+                    </span>
+                                                            <span class="txt m-txt_lg">
+                        , Tricolor (Brown, Black, &amp; White)
+                    </span>
+                                    </li>
+                    </ul>
+                    <pf-element on-click="ui.activate" data-target="#Sponsor_Modal" class="u-isHidden@minLg">
+                <pf-ensighten on-click="Consumer151" allow-event-propagation="" animal-id="42912777">
+                    <button type="button" class="btn btn_borderDark m-btn_full u-vrTop4x">
+                                                Sponsor {{ info['name'] }}
+                    </button>
+                </pf-ensighten>
+            </pf-element>
+            </div>
+</div>                                        <pfdc-sticky class="u-isVisuallyHidden@minLg" style="min-height: 1px; height: auto;">
+    <pfdc-position-tracker>
+        <nav class="slidingNav">
+            <ul pfdc-position-tracker-nav="" class="slidingNav-nav">
+                                <li class="slidingNav-nav-item">
+                    <a pfdc-position-tracker-anchor="" data-anchor-id="details" href="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/#details" class="slidingNav-nav-item-btn isActive">
+                        About
+                    </a>
+                </li>
+                                                <li class="slidingNav-nav-item">
+                    <a pfdc-position-tracker-anchor="" data-anchor-id="story" href="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/#story" class="slidingNav-nav-item-btn">
+                        Story
+                    </a>
+                </li>
+                                                <li class="slidingNav-nav-item">
+                    <a pfdc-position-tracker-anchor="" data-anchor-id="organization" href="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/#organization" class="slidingNav-nav-item-btn">
+                        Organization
+                    </a>
+                </li>
+                                                <li class="slidingNav-nav-item">
+                    <a pfdc-position-tracker-anchor="" data-anchor-id="other-pets" href="https://www.petfinder.com/dog/bane-the-dc-comic-puppies-42912777/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/#other-pets" class="slidingNav-nav-item-btn">
+                        Other pets
+                    </a>
+                </li>
+                            </ul>
+                            <pf-element on-click="ui.activate" data-target="#Share_Pet_Modal">
+                    <button class="slidingNav-shareBtn">
+                        <svg role="img">
+                            <use xlink:href="#icon-share"></use>
+                        </svg>
+                        <span class="u-isVisuallyHidden">
+                            Share
+                        </span>
+                    </button>
+                </pf-element>
+                    </nav>
+    </pfdc-position-tracker>
+</pfdc-sticky>
+                                        
+                                                                <div class="card-section">
+    <h2 class="txt txt_h2 u-vr3x">
+        <div id="details" class="slidingNavTarget" pfdc-position-tracker-section="" data-section-id="details"></div>
+                About
+    </h2>
+    <div class="grid grid_gutterLg u-vr4x">
+        <div class="grid-col grid-col_1/2@minMd grid-col_1/1@minLg">
+            <dl>
+                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Coat length</dt>
+                    <dd class="txt u-vr4x">Short</dd>
+                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">House-trained</dt>
+                    <dd class="txt u-vr4x">Yes</dd>
+                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Health</dt>
+                    <dd class="txt">Vaccinations up to date, spayed / neutered.</dd>
+                            </dl>
+        </div>
+        <div class="grid-col grid-col_1/2@minMd grid-col_1/1@minLg">
+            <dl>
+                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Good in a home with</dt>
+                    <dd class="txt u-vr4x">Other dogs, children.</dd>
+                                                                            </dl>
+        </div>
+    </div>
+</div>                                                                <div class="card-section">
+    <h2 class="txt txt_h2 u-vr3x">
+        <div id="story" class="slidingNavTarget" pfdc-position-tracker-section="" data-section-id="story"></div>
+        Meet {{ info['name'] }}
+    </h2>
+    <div class="u-vr4x">
+        THE DC COMIC PUPPIES!!!<br>
+<br>
+MEET {{ info['name'] }}!!!<br>
+<br>
+His Mama Katie showed up on someone's porch and refused to leave. <br>
+She was pregnant and covered in over 1,000 ticks and her gums were white!! <br>
+<br>
+Katie gave birth to NINE puppies!!! {{ info['name'] }} is one of her puppies!! All of the puppies were adopted but {{ info['name'] }} was returned because his adopter worked too many long hours and thought he deserved better. <br>
+<br>
+{{ info['name'] }} is a very sweet boy with a great temperament!! he loves to play with other dogs and toys!!<br>
+<br>
+{{ info['name'] }} is about 6 months old.  He has beautiful tri-colored markings!!!  Want to meet this sweet boy?<br>
+<br>
+{{ info['name'] }} would do best in a home with another dog.  <br>
+No apartments.  This dog needs a safe, fenced yard to play in.<br>
+<br>
+EMAIL:<br>
+mini-mutts@outlook.com<br>
+<br>
+(adopters MUST be in the Dallas/Fort Worth/Rockwall or surrounding areas only)
+    </div>
+</div>                                    </div>            </div>
+
+            <div class="grid-col grid-col_1/3@minLg">
+                                <div class="edgeGuard u-vr4x u-isHidden@maxLg">
+    <div class="actionCard">
+        <div class="actionCard-body">
+                            <pf-ensighten on-click="Consumer149" animal-id="42912777">
+                    <a href="#petInquiry" class="btn btn_white m-btn_full u-vr3x">
+                                                Ask About Me
+                    </a>
+                </pf-ensighten> 
+                    <pf-element on-click="ui.activate" data-target="#Sponsor_Modal">
+                    <form action="{{'/pet_info/donate'}}" method="post">
+                    {% if isAva == 'Yes' %}
+                        {% if user %}
+                        <input type="text" id="myP" placeholder="Do you want to Donate? (USD)" name="donation_amaount" required="required" aria-required="true" class="field-input" spellcheck="false" pf-input-input="" autocomplete="off" style="padding-top: 1px;">
+                        <br>
+                        <input type="text" name="animal_id" value="{{ info['animal_id'] }}" style="visibility:hidden">
+                        <button pf-mix-click="trackingBridge.ensighten('Consumer151')" animal-id="42912777" type="submit" class="btn btn_clear m-btn_full">
+                                                    Donate Now
+                        </button>
+                        {% else %}
+                        <button pf-mix-click="trackingBridge.ensighten('Consumer151')" onClick='alert("You need to be signed in")' animal-id="42912777" type="button" class="btn btn_clear m-btn_full">
+                                                    Donate Now
+                        </button>
+                        {% endif %}
+                    {% endif %}
+                    </form>
+                </pf-element>
+                                </div>
+        <div class="actionCard-footer">
+            <button class="actionCard-footer-cta" pf-mix-click="trackingBridge.ensighten('Consumer153')" animal-id="42912777" type="button" onclick="window.print()">
+                <span class="icon icon_md m-icon_colorWhite">
+                    <svg role="img" focusable="false">
+                        <use xlink:href="#icon-print"></use>
+                    </svg>
+                </span>
+                <span style="argin-left: 0px;">Print</span>
+            </button>
+        </div>
+    </div>
+</div>
+                                <div class="card card_org" style="visibility:hidden">
+    <a href="https://www.petfinder.com/member/us/tx/grand-prairie/mini-mutts-animal-rescue-tx2184/" class="card_org-logo" aria-label="Organization Home Page"></a>
+    <div class="card-section card-section_constrained u-textCenter">
+            </div>
+       
+    </div>
+</div>            </div>        </div>    </div>
+
+       <div id="petInquiry" class="u-isHidden@maxLg" tabindex="-1">
+            <div class="tier tier_full m-tier_bgPrimary m-tier_coverFixedBottom">
+                <div class="tier-inner">
+                    <div class="media m-media_alignMiddle m-media_gutterLg media_stack@maxMd u-textCenter@maxMd u-vr6x">
+            <div class="media-img">
+            <div class="imgMask imgMask_circleXl m-imgMask_center m-imgMask_borderWhite">
+                <img src="{{ url_for('static', filename='uploads/'+info['image']) }}" alt="{{ info['name'] }}">
+            </div>
+        </div>
+        <div class="media-bd">
+        <h2 class="txt txt_h2 m-txt_colorWhite u-vr2x">
+                        Ask About {{ info['name'] }}
+        </h2>
+        
+        <ul class="hrArray hrArray_bulletDivided">
+                                        <li class="txt m-txt_colorWhite">
+                    Collie
+                </li>
+                    </ul>
+        <ul class="hrArray hrArray_bulletDivided">
+                            <li class="txt m-txt_colorWhite">
+                    Young
+                </li>
+                                        <li class="txt m-txt_colorWhite">
+                    Male
+                </li>
+                                        <li class="txt m-txt_colorWhite">
+                    Medium
+                </li>
+                                        <li class="txt m-txt_colorWhite">
+                    Black
+                </li>
+                    </ul>
+    </div>
+</div>
+<div class="hr u-vr4x"></div>
+<p>
+            <span class="txt m-txt_heavy m-txt_colorWhite m-txt_uppercase">
+                        To
+        </span>
+        <br>
+        <span class="txt m-txt_lg m-txt_colorWhite">Pet Pal</span>
+    </p>
+                </div>
+            </div>
+        </div>
+        <div class="tier tier_full m-tier_bgWhite m-tier_shadowed m-tier_coverFixedBottom u-vr8x u-isHidden@maxLg">
+            <div class="tier-inner">
+                                                                
+<pfdc-adoption-inquiry-form animal-id="42912777" sub-components="" aria-busy="false">
+                    
+    <form name="animal_adoption_inquiry_guest" method="post" action="{{'/pet_info/inquiry'}}" id="formAdoption" class="" autocomplete="on" novalidate="novalidate">
+        <div pf-form-global-error="" class="alert alert_error u-vr3x u-isHidden">
+            <div class="media m-media_gutterSm">
+                <div class="media-img">
+                    <span class="icon m-icon_colorError">
+                        <svg role="img">
+                            <use xlink:href="#icon-circleAlert"></use>
+                        </svg>
+                    </span>
+                </div>
+                <div class="media-bd">
+                    <div pf-form-global-error-content="" class="txt m-txt_colorError" role="alert" aria-live="assertive"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid_gutterLg">
+            <div class="grid-col grid-col_1/2@minLg">
+                
+                <fieldset class="u-vr4x@minLg">
+                    <legend class="u-isVisuallyHidden">Send an inquiry</legend>
+                    <div class="grid grid_gutterLg">
+                        
+                        <div class="grid-col grid-col_1/2@minMd">
+                            <pf-ensighten on-blur="Consumer233">
+                                <pfdc-input class="field" is-dynamic="">
+                                                                                            
+                                            
+                                    <div pf-form-error-label="" class="txt txt_error"></div>
+                                </pfdc-input>
+                            </pf-ensighten>
+                            <div class="txt txt_error" aria-live="polite"></div>
+                        </div>
+                        
+            <div class="grid-col grid-col_1/2@minLg" style="
+    padding-left: 0px;
+    width: 500px;
+">
+{% if user %}
+                <div class="u-vr4x">
+                    <label for="animal_adoption_inquiry_guest_comments" class="txt m-txt_heavy m-txt_uppercase m-txt_block u-vr2x">
+                        Your Message (5000 Character Limit)
+                    </label>
+                        <textarea name="message" required="required" aria-required="true" class="textarea" maxlength="5000" placeholder="I'm wondering if {{ info['name'] }}"></textarea>
+                        <input type="text" name="animal_id" value="{{ info['animal_id'] }}" style="visibility:hidden">
+                        <div pf-form-error-label="" class="txt txt_error" aria-live="polite"></div>
+                </div>
+                        <button class="btn btn_loader m-btn_full" type="submit">Send Message</button>
+                    
+                </div>
+                {% else %}
+                Sign in send an inquiry
+                {% endif %}
+
+            </div>
+        </div>
+        </fieldset></div>
+        </div>
+</form>
+</pfdc-adoption-inquiry-form></div></div>
+
+
+<script src="{{ url_for('static', filename='js/jquery-1.11.2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.nav.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.scrollTo.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.localScroll.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.countdown.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/nivo-lightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.mixitup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jflickrfeed.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/matchMedia.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.fitvids.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+<script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom1.js') }}"></script>
+
+<script id="rendered-js">
+      //You may use vanilla JS, I just chose jquery
+
+$('.openmodale').click(function (e) {
+  e.preventDefault();
+  $('.modale').addClass('opened');
+});
+$('.closemodale').click(function (e) {
+  e.preventDefault();
+  $('.modale').removeClass('opened');
+});
+      //# sourceURL=pen.js
+    </script>
+
+<script>
+ new WOW().init();
+</script>
+</body>
+</html>
