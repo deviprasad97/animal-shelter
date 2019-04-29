@@ -235,6 +235,13 @@ class Database(object):
     result_set = Database.mycursor.fetchone()
     return str(result_set[0])
 
+  @staticmethod
+  def get_one_breed_id(breed):
+    query = "SELECT Breed_id FROM BREED where Breed='{}'".format(breed)
+    Database.mycursor.execute(query)
+    result_set = Database.mycursor.fetchone()
+    return str(result_set[0])
+
 
   @staticmethod
   def get_animals():
@@ -468,5 +475,133 @@ class Database(object):
       return False
 
   @staticmethod
-  def search(q):
-    pass
+  def search(filters):
+    result = []
+    breed = None
+    animal_type = None
+    if filters[0] is not None:
+      breed = Database.get_one_breed_id(filters[0])
+    if filters[1] is not None:
+      animal_type = filters[1]
+
+    matched_ids = []
+    if breed is not None and animal_type is not None:
+      query = "SELECT Animal_id FROM ANIMAL where Breed_id='{}' AND Type='{}'".format(breed, animal_type)
+      Database.mycursor.execute(query)
+      result_set = Database.mycursor.fetchall()
+      for animal in result_set:
+        temp = str(animal[0])
+        matched_ids.append(temp)
+      for id in matched_ids:
+        animal_info = {}
+        animal = Database.get_one_animal(id)
+        animal_info = animal.split(",")
+        breed = Database.get_one_breed(animal_info[9])
+        adoption_fee = Database.get_one_adoption_fee(animal_info[0])
+        animal_dict = {
+            'animal_id': animal_info[0],
+            'name': animal_info[1],
+            'age': animal_info[2],
+            'type': animal_info[3],
+            'color': animal_info[4],
+            'ava':animal_info[5],
+            'size':animal_info[6],
+            'desc':animal_info[7],
+            'date':animal_info[8],
+            'breed':breed,
+            'image':animal_info[10],
+            'adoption_fee': adoption_fee
+        }
+        result.append(animal_dict)
+    
+    elif breed and not animal_type:
+      query = "SELECT Animal_id FROM ANIMAL where Breed_id='{}'".format(breed)
+      Database.mycursor.execute(query)
+      result_set = Database.mycursor.fetchall()
+      for animal in result_set:
+        temp = str(animal[0])
+        matched_ids.append(temp)
+      for id in matched_ids:
+        animal_info = {}
+        animal = Database.get_one_animal(id)
+        animal_info = animal.split(",")
+        breed = Database.get_one_breed(animal_info[9])
+        adoption_fee = Database.get_one_adoption_fee(animal_info[0])
+        animal_dict = {
+            'animal_id': animal_info[0],
+            'name': animal_info[1],
+            'age': animal_info[2],
+            'type': animal_info[3],
+            'color': animal_info[4],
+            'ava':animal_info[5],
+            'size':animal_info[6],
+            'desc':animal_info[7],
+            'date':animal_info[8],
+            'breed':breed,
+            'image':animal_info[10],
+            'adoption_fee': adoption_fee
+        }
+        result.append(animal_dict)
+
+
+    elif animal_type and not breed:
+      query = "SELECT Animal_id FROM ANIMAL where Type='{}'".format(animal_type)
+      Database.mycursor.execute(query)
+      result_set = Database.mycursor.fetchall()
+      for animal in result_set:
+        temp = str(animal[0])
+        matched_ids.append(temp)
+      for id in matched_ids:
+        animal_info = {}
+        animal = Database.get_one_animal(id)
+        animal_info = animal.split(",")
+        breed = Database.get_one_breed(animal_info[9])
+        adoption_fee = Database.get_one_adoption_fee(animal_info[0])
+        animal_dict = {
+            'animal_id': animal_info[0],
+            'name': animal_info[1],
+            'age': animal_info[2],
+            'type': animal_info[3],
+            'color': animal_info[4],
+            'ava':animal_info[5],
+            'size':animal_info[6],
+            'desc':animal_info[7],
+            'date':animal_info[8],
+            'breed':breed,
+            'image':animal_info[10],
+            'adoption_fee': adoption_fee
+        }
+        result.append(animal_dict)
+    else:
+      query = "SELECT Animal_id FROM ANIMAL"
+      Database.mycursor.execute(query)
+      result_set = Database.mycursor.fetchall()
+      for animal in result_set:
+        temp = str(animal[0])
+        matched_ids.append(temp)
+      for id in matched_ids:
+        animal_info = {}
+        animal = Database.get_one_animal(id)
+        animal_info = animal.split(",")
+        breed = Database.get_one_breed(animal_info[9])
+        adoption_fee = Database.get_one_adoption_fee(animal_info[0])
+        animal_dict = {
+            'animal_id': animal_info[0],
+            'name': animal_info[1],
+            'age': animal_info[2],
+            'type': animal_info[3],
+            'color': animal_info[4],
+            'ava':animal_info[5],
+            'size':animal_info[6],
+            'desc':animal_info[7],
+            'date':animal_info[8],
+            'breed':breed,
+            'image':animal_info[10],
+            'adoption_fee': adoption_fee
+        }
+        result.append(animal_dict)
+    return result
+
+      
+
+    

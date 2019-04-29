@@ -418,11 +418,30 @@ def pet_adopt():
 
 @app.route('/browse/', methods=['GET','POST'])
 def search():
-
+    breeds = db.get_breeds()
     if request.method == 'POST':
-        return render_template('browse.html', results="Not found")
+        filters = []
+        breed = request.form['breed']
+        animal_type = request.form['type']
+        if breed != 'Any':
+            filters.append(breed)
+        else:
+            filters.append(None)
+        if animal_type != 'Any':
+            filters.append(animal_type)
+        else:
+            filters.append(None)
+        results = db.search(filters)
+        print("Search, POST")
+        print(results)
+        print(len(results))
+        return render_template('browse.html', breeds=breeds, results=results)
     else:
-         return render_template('browse.html')
+         results = db.search([None, None])
+         print("Search, GET")
+         print(results)
+         print(len(results))
+         return render_template('browse.html', breeds=breeds, results=results)
 
 
 @app.route('/logout', methods=['GET', 'POST'])
