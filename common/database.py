@@ -14,6 +14,14 @@ class Database(object):
     database="animalshelter"
   )
 
+  mydb_remote = mysql.connector.connect(
+    host="remotemysql.com",
+    port="3306",
+    user="NtFL52bT4h",
+    passwd="5hwAC4ND5B",
+    database="NtFL52bT4h"
+  )
+  mydb = mydb_remote
   @staticmethod
   def initialize():
     Database.mycursor = Database.mydb.cursor(buffered=True)
