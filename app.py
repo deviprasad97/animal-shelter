@@ -85,7 +85,8 @@ def signin():
 def admin():
     if 'username' in session and session['isAdmin']:
         donations = db.get_donation_sum()
-        return render_template('admin/index.html', user=session['fname'], donations=donations)
+        adoptions = db.get_total_adoptions()
+        return render_template('admin/index.html', user=session['fname'], donations=donations, adoptions=adoptions)
     else:
         return render_template('home-multipage.html', user=session['username'])
 

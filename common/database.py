@@ -265,7 +265,7 @@ class Database(object):
     for animal in result_set:
       desc = animal[9]
       desc.replace("," , "")
-      temp = str(animal[0]) + "," + str(animal[1]) + "," + str(animal[2]) + "," + str(animal[3]) + "," + str(animal[4])+ "," + str(animal[5])+ "," + str(animal[6])+ "," + str(animal[7])+ "," + str(animal[8])+ "," + str(animal[9])+ "," + str(animal[10])
+      temp = str(animal[0]) + "," + str(animal[1]) + "," + str(animal[2]) + "," + str(animal[3]) + "," + str(animal[4])+ "," + str(animal[5])+ "," + str(animal[6])+ "," + str(animal[7])+ "," + str(animal[8])+ "," + desc + "," + str(animal[10])
     return temp
 
   @staticmethod
@@ -621,11 +621,10 @@ class Database(object):
   
   @staticmethod
   def get_total_adoptions():
-    total_donation = 0
-    query = "SELECT Amaount FROM DONATIONS"
+    total_adoption = 0
+    query = "SELECT Adoption_id FROM ADOPTION"
     Database.mycursor.execute(query)
     result_set = Database.mycursor.fetchall()
     for donation in result_set:
-      temp = str(donation[0])
-      total_donation = total_donation + int(temp)
-    return total_donation
+      total_adoption = total_adoption + 1
+    return total_adoption
