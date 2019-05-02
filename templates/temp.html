@@ -345,20 +345,15 @@ function change()
                 </li>
                                         <li>
                     <span class="txt m-txt_lg">
-                        Medium
+                        {{ info['type'] }}
                     </span>
                 </li>
                                         <li>
                     <span class="txt m-txt_lg">
-                        Black
+                        {{ info['color'] }}
                     </span>
-                                        <span class="txt m-txt_lg">
-                        , Brown / Chocolate
-                    </span>
-                                                            <span class="txt m-txt_lg">
-                        , Tricolor (Brown, Black, &amp; White)
-                    </span>
-                                    </li>
+                    </li>
+
                     </ul>
                     <pf-element on-click="ui.activate" data-target="#Sponsor_Modal" class="u-isHidden@minLg">
                 <pf-ensighten on-click="Consumer151" allow-event-propagation="" animal-id="42912777">
@@ -406,31 +401,8 @@ function change()
                     </nav>
     </pfdc-position-tracker>
 </pfdc-sticky>
-                                        
-                                                                <div class="card-section">
-    <h2 class="txt txt_h2 u-vr3x">
-        <div id="details" class="slidingNavTarget" pfdc-position-tracker-section="" data-section-id="details"></div>
-                About
-    </h2>
-    <div class="grid grid_gutterLg u-vr4x">
-        <div class="grid-col grid-col_1/2@minMd grid-col_1/1@minLg">
-            <dl>
-                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Coat length</dt>
-                    <dd class="txt u-vr4x">Short</dd>
-                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">House-trained</dt>
-                    <dd class="txt u-vr4x">Yes</dd>
-                                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Health</dt>
-                    <dd class="txt">Vaccinations up to date, spayed / neutered.</dd>
-                            </dl>
-        </div>
-        <div class="grid-col grid-col_1/2@minMd grid-col_1/1@minLg">
-            <dl>
-                                    <dt class="txt m-txt_lg m-txt_bold m-txt_uppercase">Good in a home with</dt>
-                    <dd class="txt u-vr4x">Other dogs, children.</dd>
-                                                                            </dl>
-        </div>
-    </div>
-</div>                                                                <div class="card-section">
+
+ <div class="card-section">
     <h2 class="txt txt_h2 u-vr3x">
         <div id="story" class="slidingNavTarget" pfdc-position-tracker-section="" data-section-id="story"></div>
         Meet {{ info['name'] }}
@@ -440,22 +412,13 @@ function change()
 <br>
 MEET {{ info['name'] }}!!!<br>
 <br>
-His Mama Katie showed up on someone's porch and refused to leave. <br>
-She was pregnant and covered in over 1,000 ticks and her gums were white!! <br>
+{{ info['desc'] }}
 <br>
-Katie gave birth to NINE puppies!!! {{ info['name'] }} is one of her puppies!! All of the puppies were adopted but {{ info['name'] }} was returned because his adopter worked too many long hours and thought he deserved better. <br>
-<br>
-{{ info['name'] }} is a very sweet boy with a great temperament!! he loves to play with other dogs and toys!!<br>
-<br>
-{{ info['name'] }} is about 6 months old.  He has beautiful tri-colored markings!!!  Want to meet this sweet boy?<br>
-<br>
-{{ info['name'] }} would do best in a home with another dog.  <br>
-No apartments.  This dog needs a safe, fenced yard to play in.<br>
+
 <br>
 EMAIL:<br>
-mini-mutts@outlook.com<br>
+adopt@petpal.com<br>
 <br>
-(adopters MUST be in the Dallas/Fort Worth/Rockwall or surrounding areas only)
     </div>
 </div>                                    </div>            </div>
 

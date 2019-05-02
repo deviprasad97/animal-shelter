@@ -22,6 +22,7 @@ def main():
     if 'username' not in session:
         return render_template('home-multipage.html', results=results)
     else:
+        print(isAdmin)
         return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'], results=results)
 
 
@@ -30,7 +31,9 @@ def signup():
     #[fname, lname, email, pnumber, username, password]
     error = None
     if 'username' in session:
-        return render_template('home-multipage.html', user=session['username'])
+        results = db.search([None, None])
+        results = random.sample(results, 2)
+        return render_template('home-multipage.html', user=session['username'], results=results)
         
     if request.method == 'POST':
         fname = request.form['fname']
@@ -39,9 +42,11 @@ def signup():
         pnumber = request.form['pnumber']
         username = request.form['username']
         password = request.form['password']
+        results = db.search([None, None])
+        results = random.sample(results, 2)
         if db.create_user(username, password, fname, lname, pnumber,email):
            session['username'] = request.form['username']
-           return render_template('home-multipage.html', user=session['username'])
+           return render_template('home-multipage.html', user=session['username'], results=results)
         else:
             error = "Database Error occured" 
    # remove the username from the session if it is there
@@ -50,7 +55,11 @@ def signup():
 @app.route("/signin", methods=['GET', 'POST'])
 def signin():
     if 'username' in session:
-        return render_template('home-multipage.html', user=session['username'])
+        results = db.search([None, None])
+        results = random.sample(results, 2)
+        if session['isAdmin']:
+            return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'], results=results)
+        return render_template('home-multipage.html', user=session['username'], results=results)
     error = None
     if request.method == 'POST':
         print(request.form['username'])
@@ -63,7 +72,11 @@ def signin():
                 print(session['isAdmin'])
                 session['fname'] = user['First_name']
                 session['user_id'] = user['profile_id']
-                return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'])
+                results = db.search([None, None])
+                results = random.sample(results, 2)
+                if session['isAdmin']:
+                    return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'], results=results)
+                return render_template('home-multipage.html', user=session['username'], isAdmin=session['isAdmin'], results=results)
             else:
                 error = 'Invalid Credentials. Please try again.'
     return render_template('login.html', error=error)
@@ -71,7 +84,8 @@ def signin():
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if 'username' in session and session['isAdmin']:
-        return render_template('admin/index.html', user=session['fname'])
+        donations = db.get_donation_sum()
+        return render_template('admin/index.html', user=session['fname'], donations=donations)
     else:
         return render_template('home-multipage.html', user=session['username'])
 
@@ -171,6 +185,7 @@ def edit_animal():
 def donation_user():
     if 'username' in session and session['isAdmin'] and request.method == 'GET':
         users = db.get_all_user()
+        print(users)
         all_usernames = []
         for user in users:
             all_usernames.append(user['Username'])
@@ -183,6 +198,7 @@ def donation_user():
             username = request.form['user']
             print(username)
             info = db.get_donation_byuser(username)
+            print(info)
             return render_template('admin/donation_user.html', info=info, user=username, view_table=True, init=False, user1=session['fname'])
 
 @app.route('/admin/donation/bydate', methods=['GET', 'POST'])

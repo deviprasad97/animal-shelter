@@ -14,14 +14,6 @@ class Database(object):
     database="animalshelter"
   )
 
-  mydb_remote = mysql.connector.connect(
-    host="remotemysql.com",
-    port="3306",
-    user="NtFL52bT4h",
-    passwd="5hwAC4ND5B",
-    database="NtFL52bT4h"
-  )
-  mydb = mydb_remote
   @staticmethod
   def initialize():
     Database.mycursor = Database.mydb.cursor(buffered=True)
@@ -238,6 +230,8 @@ class Database(object):
   @staticmethod
   def get_one_breed(id):
     all_breeds = []
+    print("Tag: Breed")
+    print(id)
     query = "SELECT Breed FROM BREED where Breed_id='{}'".format(id)
     Database.mycursor.execute(query)
     result_set = Database.mycursor.fetchone()
@@ -269,6 +263,8 @@ class Database(object):
     result_set = Database.mycursor.fetchall()
     print(result_set)
     for animal in result_set:
+      desc = animal[9]
+      desc.replace("," , "")
       temp = str(animal[0]) + "," + str(animal[1]) + "," + str(animal[2]) + "," + str(animal[3]) + "," + str(animal[4])+ "," + str(animal[5])+ "," + str(animal[6])+ "," + str(animal[7])+ "," + str(animal[8])+ "," + str(animal[9])+ "," + str(animal[10])
     return temp
 
@@ -277,6 +273,8 @@ class Database(object):
     info = []
     user = Database.get_user(username)
     user_id = user['profile_id']
+    print("Tag: Database")
+    print(user_id)
     query = "SELECT * FROM DONATIONS where User_id='{}'".format(user_id)
     Database.mycursor.execute(query)
     result_set = Database.mycursor.fetchall()
@@ -610,6 +608,13 @@ class Database(object):
         result.append(animal_dict)
     return result
 
-      
-
-    
+  @staticmethod
+  def get_donation_sum():
+    total_donation = 0
+    query = "SELECT Amaount FROM DONATIONS"
+    Database.mycursor.execute(query)
+    result_set = Database.mycursor.fetchall()
+    for donation in result_set:
+      temp = str(donation[0])
+      total_donation = total_donation + int(temp)
+    return total_donation
