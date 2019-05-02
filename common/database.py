@@ -618,3 +618,14 @@ class Database(object):
       temp = str(donation[0])
       total_donation = total_donation + int(temp)
     return total_donation
+  
+  @staticmethod
+  def get_total_adoptions():
+    total_donation = 0
+    query = "SELECT Amaount FROM DONATIONS"
+    Database.mycursor.execute(query)
+    result_set = Database.mycursor.fetchall()
+    for donation in result_set:
+      temp = str(donation[0])
+      total_donation = total_donation + int(temp)
+    return total_donation
